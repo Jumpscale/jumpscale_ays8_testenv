@@ -1,0 +1,6 @@
+
+
+github_repo__www_greenboats:
+  repo.type : 'www'
+  repo.account : 'incubaid'
+  milestone.category : ''  
