@@ -1,4 +1,5 @@
 events.email =
     from_email_ticket,
 
-recurring.from_github_ticket = '1m'
+events.generic =
+    'from_github_ticket',
