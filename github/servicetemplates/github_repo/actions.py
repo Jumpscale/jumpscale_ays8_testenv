@@ -97,49 +97,28 @@ class Actions(ActionsBaseMgmt):
                     # repo.deleteMilestone(name)
                     print("DELETE MILESTONE:%s %s" % (repo, name))
 
-    # def getIssuesFromAYS(self):
+    def getIssuesFromAYS(self):
+        client = self.service.getProducers('github_client')[0].actions.getGithubClient()
+        repokey = self.service.hrd.get("repo.account") + "/" + self.service.hrd.get("repo.name")
+        repo = client.getRepo(repokey)
 
-    #     client=self.service.getProducers('github_client')[0].actions.getGithubClient()
-    #     repokey=self.service.hrd.get("repo.account")+"/"+self.service.hrd.get("repo.name")
-    #     repo=client.getRepo(repokey)
+        Issue = j.clients.github.getIssueClass()
+        for child in self.service.children:
+            if child.role != 'github_issue':
+                continue
+            issue = Issue(repo=repo, ddict=child.model)
+            repo.issues.append(issue)
 
-    #     path=j.sal.fs.joinPaths(self.service.path,"issues.md")
-    #     content=j.sal.fs.fileGetContents(path)
+        repo.issues_loaded = True
 
-    #     md=j.data.markdown.getDocument(content)
-
-    #     issueblock=""
-    #     state="start"
-    #     issueNumber=0
-    #     for item in md.items:
-    #         print(item.type)
-
-    #         if item.type=="comment1line":
-    #             if issueNumber!=0:
-    #                 #process previously gathered issue
-    #                 issue=repo.getIssueFromMarkdown(issueNumber,issueblock)
-
-    #             issueblock=""
-    #             state="block"
-    #             issueNumber=j.data.tags.getObject(item.text).tagGet("issue")
-    #             continue
-
-    #         if state=="block":
-    #             issueblock+=str(item)+"\n"
-
-    #     if issueNumber!=0:
-    #         repo.getIssueFromMarkdown(issueNumber,issueblock)
-
-    #     repo.issues_loaded=True
-
-    #     return repo
+        return repo
 
     def get_github_repo(self):
         client = self.service.getProducers('github_client')[0].actions.getGithubClient()
         repokey = self.service.hrd.get("repo.account") + "/" + self.service.hrd.get("repo.name")
         repo = client.getRepo(repokey)
         fromAys = True
-        if self.service.state.get("getIssuesFromGithub") != "OK":
+        if self.service.state.get("getIssuesFromGithub")[0] != "OK":
             # means have not been able to get the issues from github properly, so do again
             fromAys = False
         if not repo.issues_loaded:
@@ -203,25 +182,8 @@ class Actions(ActionsBaseMgmt):
 
         if issues != []:
             for issue in issues:
-                data = {
-                    'title': issue.title,
-                    'number': issue.number,
-                    'body': issue.body,
-                    'labels': issue.labels,
-                    'priority': issue.priority,
-                    'assignee': issue.assignee,
-                    'milestone': issue.milestone,
-                    'url': issue.url
-                }
                 args = {'github.repo': self.service.instance}
-                service = self.service.aysrepo.new(name='github_issue', instance=str(issue.id), args=args, model=data)
-            from IPython import embed
-            print("DEBUG NOW getIssuesFromGithub")
-            embed()
-            p
-
-        # path=j.sal.fs.joinPaths(self.service.path,"issues.md")
-        # r.serialize2Markdown(path)
+                service = self.service.aysrepo.new(name='github_issue', instance=str(issue.id), args=args, model=issue.ddict)
 
         self.service.state.set("getIssuesFromGithub", "OK")
         self.service.state.save()
@@ -229,10 +191,3 @@ class Actions(ActionsBaseMgmt):
         r.issues_loaded = True
 
         self.service.actions.processIssues(force=True)
-
-    # def change(self,stateitem):
-    #     if stateitem.name not in ["install"]:
-    #         stateitemToChange=self.service.state.getSet("install")
-    #         if stateitemToChange.state=="OK":
-    #             stateitemToChange.state="CHANGED"
-    #             self.service.state.save()
