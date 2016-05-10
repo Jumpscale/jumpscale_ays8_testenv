@@ -4,7 +4,7 @@ from JumpScale import j
 
 class Actions(ActionsBaseMgmt):
 
-    
+
     def init(self):
 
         config="""
@@ -20,6 +20,7 @@ class Actions(ActionsBaseMgmt):
         github.label.type.bug: [code, ays, cockpit, doc, www]
         github.label.type.feature: [code, ays, cockpit, doc, www]
         github.label.type.monitor: [proj, www, cockpit]
+        github.label.type.assistance_request: [proj]
         github.label.type.question: [home, code, proj, ays, doc, cockpit, www,milestone,org]
         github.label.type.story: [home, proj, milestone,org]
         github.label.type.task: [home,milestone,proj,org]
@@ -36,7 +37,7 @@ class Actions(ActionsBaseMgmt):
         self.service.hrdCreate()
         self.service.hrd.setArgs(labels)
 
-    def getGithubClient(self):        
+    def getGithubClient(self):
         from github import Github
         g=Github("$(github.secret)")
         return g
@@ -48,4 +49,3 @@ class Actions(ActionsBaseMgmt):
 
     def monitor(self):
         g=self.getGithubClient()
-    
