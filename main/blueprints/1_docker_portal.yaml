@@ -12,8 +12,8 @@ rack__ovh_1:
   datacenter: 'ovh_germany1'
 
 #make sure we use the ovh_install key we want
-# sshkey__ovh_install:
-  # key.path: '/root/.ssh/ovh_rsa'
+sshkey__ovh_install:
+  key.path: '/root/.ssh/ovh_rsa'
 
 #no need to specify a sshkey, because there is only 1 will use that one
 node.physical__ovh4:

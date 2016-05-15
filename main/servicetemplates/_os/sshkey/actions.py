@@ -33,12 +33,11 @@ class Actions(ActionsBaseMgmt):
         self.service.hrd.set('key.pub', "somepubkey")
         self.service.hrd.set('key.priv', "someprivkey")
 
-        self.install()
 
 
     def install(self):
         # j.do.loadSSHAgent()
-        self.start()
+        pass
 
 
     def start(self):

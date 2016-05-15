@@ -19,7 +19,7 @@ class Actions(ActionsBaseMgmt):
         return True
 
     def getExecutor(self):
-        return None
+        return j.tools.executor.getLocal()
 
     def monitor(self):
         return True
