@@ -4,7 +4,7 @@ from JumpScale import j
 class Actions(ActionsBaseMgmt):
 
     def init(self):
-
+ # testing changing the template
         # if self.service.hrd.getBool('shellinabox'):
         #     shellinabox = self.service.aysrepo.new(instance=self.service.instance, consume=self.service)
         return True
