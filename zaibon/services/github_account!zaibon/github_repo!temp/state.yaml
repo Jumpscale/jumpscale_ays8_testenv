@@ -1,0 +1,12 @@
+events: {}
+instanceHRDHash: 45653809f91324517661c4811f21a987
+parent: github_account!zaibon
+producers:
+  github_account: [github_account!zaibon]
+  github_client: [github_client!main]
+  github_config: [github_config!main]
+  github_milestone: [github_milestone!js8.0, github_milestone!js8.2, github_milestone!js8.1]
+recipe: github_repo
+recurring: {}
+state: {}
+templateHRDHash: ''

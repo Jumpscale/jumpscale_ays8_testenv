@@ -1,0 +1,10 @@
+{
+ "methods":{
+  "getGithubClient":"130cfe4c4f5d2b523184d9d3bcc26bca",
+  "install":"8148079d73298aa3b9098de0ed5293e8",
+  "monitor":"a3855e9ed4991545f566bd618a3dba4a",
+  "test":"7327381144cf9106abfdbc1fc734ae6f",
+  "test2":"5454a8d6c8c789d591ba08e90298eb32",
+  "testasync":"f6557bbb8d8e989148ace8bee214688b"
+ }
+}

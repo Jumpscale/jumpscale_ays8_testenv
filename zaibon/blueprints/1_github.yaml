@@ -1,0 +1,8 @@
+github_client__main:
+  github.secret : '63baf4ffd460585f5bdc909ae898974d4abe26c0'
+  code.path : '$vardir/codetmp/'
+
+github_account__zaibon:
+  github.url : 'https://github.com/zaibon'
+
+github_config__main:

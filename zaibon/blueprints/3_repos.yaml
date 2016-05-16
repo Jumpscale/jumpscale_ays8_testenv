@@ -1,0 +1,17 @@
+github_repo__temp:
+  repo.name : 'temp'
+  repo.type : 'org'
+  repo.account : 'zaibon'
+  milestone.category : 'code_js'
+
+# github_repo__temp2:
+#   repo.name : 'openvcloud_ays'
+#   repo.type : 'code'
+#   repo.account : 'zaibon'
+#   milestone.category : 'code_js'
+
+
+github_support__main:
+    github_repo:
+        - temp
+        - temp2
