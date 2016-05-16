@@ -11,7 +11,7 @@ class Actions(ActionsBaseMgmt):
         j.do.execute("ssh-agent", die=False, showout=False, outputStderr=False)
 
     def init(self):
-        """
+        """ # testing changing the template
         create key
         """
         if self.service.hrd.get("key.name") == "":
@@ -59,6 +59,5 @@ class Actions(ActionsBaseMgmt):
     #         keyloc = "/root/.ssh/%s" % '$(key.name)'
     #         cmd = 'ssh-add -d %s' % keyfile
     #         j.do.executeInteractive(cmd)
-
 
 
