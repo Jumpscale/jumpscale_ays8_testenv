@@ -12,10 +12,10 @@ class Actions(ActionsBaseMgmt):
         return args
 
 
-    def init(self):
+    def init(self, service):
         pass
 
-    def getClient(self):
+    def getClient(self, service):
         """
         return client towards g8 master
         """

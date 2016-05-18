@@ -4,14 +4,14 @@ from JumpScale import j
 
 class Actions(ActionsBaseMgmt):
 
-    def init(self):
+    def init(self, service):
         pass
 
-    def install(self):
+    def install(self, service):
         return True
 
-    def uninstall(self):
+    def uninstall(self, service):
         return True
 
-    def getClient(self):
+    def getClient(self, service):
         return None

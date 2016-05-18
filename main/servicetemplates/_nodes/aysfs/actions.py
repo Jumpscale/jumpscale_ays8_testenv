@@ -3,14 +3,14 @@ from JumpScale import j
 
 class Actions(ActionsBaseMgmt):
 
-    def init(self):
+    def init(self, service):
         return True
 
-    def install(self):
+    def install(self, service):
         return True
 
-    def start(self):
+    def start(self, service):
         return True
 
-    def stop(self):
+    def stop(self, service):
         return True

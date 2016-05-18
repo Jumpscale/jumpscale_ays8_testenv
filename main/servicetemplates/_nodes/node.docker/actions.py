@@ -3,20 +3,20 @@ from JumpScale import j
 
 class Actions(ActionsBaseMgmt):
 
-    def init(self):
+    def init(self, service):
  # testing changing the template
-        # if self.service.hrd.getBool('shellinabox'):
-        #     shellinabox = self.service.aysrepo.new(instance=self.service.instance, consume=self.service)
+        # if service.hrd.getBool('shellinabox'):
+        #     shellinabox = service.aysrepo.new(instance=service.instance, consume=service)
         return True
 
-    def install(self):
-        sshkey = self.service.getProducers('sshkey')[0]
+    def install(self, service):
+        sshkey = service.getProducers('sshkey')[0] #test
         pubkey = sshkey.hrd.get('key.pub')
-        image = self.service.hrd.getStr('image')
-        if 'node' in self.service.parent.producers:
-            host_node = self.service.parent.producers['node'][0]
+        image = service.hrd.getStr('image')
+        if 'node' in service.parent.producers:
+            host_node = service.parent.producers['node'][0]
         else:
-            raise j.exceptions.NotFound("Can't find host node of this service %s" % self.service)
+            raise j.exceptions.NotFound("Can't find host node of this service %s" % service)
 
         def _pf_map(docker_ports):
             pf_creation = []
@@ -45,22 +45,25 @@ class Actions(ActionsBaseMgmt):
                     return private
             return None
 
-        docker_ports = self.service.hrd.getList('ports')
+        docker_ports = service.hrd.getList('ports')
         pf_creation = _pf_map(docker_ports)
 
         pfs = ' '.join(pf_creation)
         local_port = j.data.idgenerator.generateRandomInt(2023,2050)
         public_port =j.data.idgenerator.generateRandomInt(4023,4050)
 
-        self.service.hrd.set('docker.sshport', public_port)
-        self.service.hrd.set('node.addr', self.service.executor.addr)
-        self.service.hrd.set('portforwards', pf_creation)
+        service.hrd.set('docker.sshport', public_port)
+        service.hrd.set('node.addr', service.executor.addr)
+        service.hrd.set('portforwards', pf_creation)
 
-        for child in self.service.children:
-            child.hrd.set("ssh.addr", self.service.executor.addr)
+        for child in service.children:
+            child.hrd.set("ssh.addr", service.executor.addr)
             child.hrd.set("ssh.port", public_port)
 
         # use proper logger
-        self.service.logger.info("OUT: Docker %s deployed." % self.service.instance)
-        self.service.logger.info("OUT: IP %s" % self.service.executor.addr)
-        self.service.logger.info("OUT: SSH port %s" % public_port)
+        service.logger.info("OUT: Docker %s deployed." % service.instance)
+        service.logger.info("OUT: IP %s" % service.executor.addr)
+        service.logger.info("OUT: SSH port %s" % public_port)
+
+    def start(self, service):
+        return True #test

@@ -4,24 +4,24 @@ from JumpScale import j
 
 class Actions(ActionsBaseMgmt):
 
-    def init(self):
+    def init(self, service):
 
-        clientaysi = self.service.getProducers("g8client")[0]
+        clientaysi = service.getProducers("g8client")[0]
 
-        if self.service.hrd.get("g8.account") == "":
-            self.service.hrd.set("g8.account", clientaysi.hrd.get("g8.login"))
+        if service.hrd.get("g8.account") == "":
+            service.hrd.set("g8.account", clientaysi.hrd.get("g8.login"))
 
-        if self.service.hrd.get("g8.location") == "":
-            self.service.hrd.set('g8.location', "alocation%s"%j.data.idgenerator.generateRandomInt(10,20))
+        if service.hrd.get("g8.location") == "":
+            service.hrd.set('g8.location', "alocation%s"%j.data.idgenerator.generateRandomInt(10,20))
 
-    def install(self):
-        acc = client.account_get(self.service.hrd.get('g8.account'))
-        # space = acc.space_get("$(service.instance)", self.service.hrd.get('g8.location'))
+    def install(self, service):
+        acc = client.account_get(service.hrd.get('g8.account'))
+        # space = acc.space_get("$(service.instance)", service.hrd.get('g8.location'))
 
-    def uninstall(self):
+    def uninstall(self, service):
         return True
 
-    def getClient(self):
+    def getClient(self, service):
         clientname = """$(producer.g8client)"""
         clientname = clientname.strip().strip("',")
         return clientname
