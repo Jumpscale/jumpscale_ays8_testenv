@@ -1,8 +1,0 @@
-{
- "methods":{
-  "getGithubClient":"91890b5084e0a71d60fdaffce8d66f13",
-  "init":"75fb49be25dce3b30cae3aa4650c0ea0",
-  "install":"397bbe946a53c4119d0121e534bbbb12",
-  "monitor":"290e08243685ea97f8084d40df572f7b"
- }
-}
