@@ -61,5 +61,3 @@ class Actions(ActionsBaseMgmt):
     #         j.do.executeInteractive(cmd)
 
 
-    def consume(self, service):
-        print ('should not consume')
