@@ -1,0 +1,13 @@
+cockpit__pilot:
+  telegram.token: '********'
+  cockpit.name: 'js8_installation_test'
+  dns.login: '*******'
+  dns.password: '*******'
+  g8.account: '*******'
+  g8.url: 'du-conv-3.demo.greenitglobe.com'
+  g8.login: 'thursday'
+  g8.password: '******'
+  dns.domain: '******'
+  oauth.client_secret: '********'
+  oauth.client_id: '*******'
+  oauth.organization: 'JSPortal'
