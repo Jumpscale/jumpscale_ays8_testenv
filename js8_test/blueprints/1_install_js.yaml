@@ -2,6 +2,9 @@ test_jumpscale8__main:
   g8.account: 'thursday'
   g8.url: 'du-conv-3.demo.greenitglobe.com'
   g8.login: 'thursday'
-  g8.password: '******'
+  g8.password: '*******'
+  telegram.token: '******'
+  jwt.key: ''
+  organization: 'Testing'
 
 
