@@ -4,7 +4,7 @@ from JumpScale import j
 class Actions(ActionsBaseMgmt):
 
     @action()
-    def process(self):
+    def process(self, service):
         Issue = j.clients.github.getIssueClass()
         repo = self.service.parent.actions.get_github_repo()
 
@@ -15,7 +15,7 @@ class Actions(ActionsBaseMgmt):
                 break
 
     @action()
-    def getIssueFromGithub(self):
+    def getIssueFromGithub(self, service):
 
         repo=self.service.actions.get_github_repo()
 
@@ -96,7 +96,6 @@ class Actions(ActionsBaseMgmt):
             else:
                 print("not supported action")
         elif event_type == 'issues':
-            import ipdb; ipdb.set_trace()
             if github_payload['issue']['id'] != self.service.model['id']:
                 return
 

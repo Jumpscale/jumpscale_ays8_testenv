@@ -3,14 +3,14 @@ from JumpScale import j
 
 class Actions(ActionsBaseMgmt):
 
-    def input(self,recipe,role,instance,args={}):
+    def input(self, service, recipe, role, instance, args={}):
         if "milestone.title" not in args:
             args['milestone.title']=instance
 
         return args
 
 
-    def install(self):
+    def install(self, service):
 
         deadline=self.service.hrd.get("milestone.deadline")
 
@@ -21,10 +21,3 @@ class Actions(ActionsBaseMgmt):
             deadline=j.data.time.any2HRDateTime(deadline)
 
         self.service.hrd.set("milestone.deadline",deadline)
-
-
-        
-
-
-
-        

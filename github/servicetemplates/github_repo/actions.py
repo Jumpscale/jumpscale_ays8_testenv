@@ -3,7 +3,7 @@ from JumpScale import j
 
 class Actions(ActionsBaseMgmt):
 
-    def input(self, name, role, instance, args={}):
+    def input(self, service, name, role, instance, args={}):
 
         # if repo.name not filled in then same as instance
         if "repo.name" not in args or args["repo.name"].strip() == "":
@@ -41,7 +41,7 @@ class Actions(ActionsBaseMgmt):
         return args
 
     @action()
-    def init(self):
+    def init(self, service):
 
         # set url based on properties of parent
         url = self.service.parent.hrd.get("github.url").rstrip("/")
@@ -60,18 +60,18 @@ class Actions(ActionsBaseMgmt):
 
         return True
 
-    def install(self):
+    def install(self, service):
         # self.service.actions.pull()
         self.service.actions.getIssuesFromGithub()
         self.service.actions.setMilestonesOnGithub()
 
     @action()
-    def pull(self):
+    def pull(self, service):
         j.do.pullGitRepo(url=self.service.hrd.get("repo.url"), dest=self.service.hrd.get("code.path"), login=None, passwd=None, depth=1,
                          ignorelocalchanges=False, reset=False, branch=None, revision=None, ssh=True, executor=None, codeDir=None)
 
     @action()
-    def setMilestonesOnGithub(self):
+    def setMilestonesOnGithub(self, service):
 
         repo = self.service.actions.get_github_repo()
 
@@ -97,7 +97,7 @@ class Actions(ActionsBaseMgmt):
                     # repo.deleteMilestone(name)
                     print("DELETE MILESTONE:%s %s" % (repo, name))
 
-    def getIssuesFromAYS(self):
+    def getIssuesFromAYS(self, service):
         client = self.service.getProducers('github_client')[0].actions.getGithubClient()
         repokey = self.service.hrd.get("repo.account") + "/" + self.service.hrd.get("repo.name")
         repo = client.getRepo(repokey)
@@ -113,7 +113,7 @@ class Actions(ActionsBaseMgmt):
 
         return repo
 
-    def get_github_repo(self):
+    def get_github_repo(self, service):
         client = self.service.getProducers('github_client')[0].actions.getGithubClient()
         repokey = self.service.hrd.get("repo.account") + "/" + self.service.hrd.get("repo.name")
         repo = client.getRepo(repokey)
@@ -139,22 +139,22 @@ class Actions(ActionsBaseMgmt):
         return repo
 
     @action()
-    def processIssues(self):
+    def processIssues(self, service):
         repo = self.service.actions.get_github_repo()
         repo.process_issues()
 
-    def stories2pdf(self):
+    def stories2pdf(self, service):
         repo = self.service.actions.get_github_repo()
         from IPython import embed
         print("DEBUG NOW stories 2 pdf")
         embed()
 
     @action()
-    def test(self):
+    def test(self, service):
         print("TEST")
 
     @action()
-    def getIssuesFromGithub(self):
+    def getIssuesFromGithub(self, service):
         config = self.service.getProducers('github_config')[0]
 
         projtype = self.service.hrd.get("repo.type")
