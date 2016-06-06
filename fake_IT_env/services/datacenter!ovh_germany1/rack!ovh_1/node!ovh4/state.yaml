@@ -1,9 +1,9 @@
 events: {}
-instanceHRDHash: 1f88a59872f9b38e86b454e9a34767aa
+instanceHRDHash: 27b82d658512fd5c8e4dd3940527ba19
 parent: rack!ovh_1
 producers:
   rack: [rack!ovh_1]
 recipe: node.physical
 recurring: {}
-state: {init: OK, install: OK}
+state: {init: OK, install: CHANGEDHRD}
 templateHRDHash: ''
