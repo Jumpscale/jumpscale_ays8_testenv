@@ -37,7 +37,7 @@ class Actions(ActionsBaseMgmt):
             name = github_payload['repository']['name']
 
             repo_service = None
-            for s in self.service.producers['github_repo']:
+            for s in service.producers['github_repo']:
                 if name == s.hrd.getStr('repo.name') and account == s.hrd.getStr('repo.account'):
                     repo_service = s
                     break
@@ -68,7 +68,7 @@ class Actions(ActionsBaseMgmt):
             repo.issues.append(issue)
             # Create issue service instance of the newly created github issue
             args = {'github.repo': repo_service.instance}
-            service = self.service.aysrepo.new(name='github_issue', instance=str(issue.id), args=args, model=issue.ddict)
+            service = service.aysrepo.new(name='github_issue', instance=str(issue.id), args=args, model=issue.ddict)
 
             # delete issue from redis when processed
             j.core.db.hdel('webhooks', key)
@@ -98,7 +98,7 @@ class Actions(ActionsBaseMgmt):
             return
 
         repo_service = None
-        for s in self.service.producers['github_repo']:
+        for s in service.producers['github_repo']:
             if repo_name == s.hrd.getStr('repo.name'):
                 repo_service = s
                 break
@@ -121,4 +121,4 @@ class Actions(ActionsBaseMgmt):
         repo.issues.append(issue)
         # Create issue service instance of the newly created github issue
         args = {'github.repo': repo_service.instance}
-        service = self.service.aysrepo.new(name='github_issue', instance=str(issue.id), args=args, model=issue.ddict)
+        service = service.aysrepo.new(name='github_issue', instance=str(issue.id), args=args, model=issue.ddict)

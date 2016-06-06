@@ -12,7 +12,7 @@ class Actions(ActionsBaseMgmt):
 
     def install(self, service):
 
-        deadline=self.service.hrd.get("milestone.deadline")
+        deadline=service.hrd.get("milestone.deadline")
 
         if deadline.startswith("+"):
             epoch=j.data.time.getEpochFuture(deadline)
@@ -20,4 +20,4 @@ class Actions(ActionsBaseMgmt):
         else:
             deadline=j.data.time.any2HRDateTime(deadline)
 
-        self.service.hrd.set("milestone.deadline",deadline)
+        service.hrd.set("milestone.deadline",deadline)
