@@ -1,0 +1,11 @@
+events: {}
+instanceHRDHash: 2fa9f6dce5eb4a9c096bfa4b2f9187ef
+parent: os!ovh4
+producers:
+  app_docker: [app_docker!auto_0]
+  os: [os!ovh4]
+  sshkey: [sshkey!ovh_install]
+recipe: node.docker
+recurring: {}
+state: {init: OK, install: CHANGEDHRD}
+templateHRDHash: ''

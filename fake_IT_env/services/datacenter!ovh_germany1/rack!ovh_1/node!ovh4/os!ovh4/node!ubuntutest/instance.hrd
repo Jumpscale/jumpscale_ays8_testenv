@@ -1,0 +1,16 @@
+docker                         = 
+docker.sshport                 = '4030'
+
+image                          = 'ubuntu'
+
+node.addr                      = 'localhost'
+
+os                             = 'ovh4'
+
+portforwards                   =
+    '80:80',
+
+ports                          =
+    '80',
+
+sshkey                         = 

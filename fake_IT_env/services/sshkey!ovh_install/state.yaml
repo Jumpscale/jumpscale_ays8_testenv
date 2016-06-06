@@ -1,0 +1,8 @@
+events: {}
+instanceHRDHash: bd11de3ae72e90dd0e1143bf36709fcc
+parent: ''
+producers: {}
+recipe: sshkey
+recurring: {}
+state: {init: OK, install: OK}
+templateHRDHash: ''
