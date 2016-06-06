@@ -15,6 +15,8 @@ rack__ovh_1:
 sshkey__ovh_install:
   key.path: '/root/.ssh/ovh_rsa'
 
+#sshkey__ovh_install2:
+
 #no need to specify a sshkey, because there is only 1 will use that one
 node.physical__ovh4:
   rack: 'ovh_1'
@@ -27,7 +29,6 @@ os.ssh.ubuntu__ovh4:
   node: 'ovh4'
   aysfs: False
 
-
 node.docker__ubuntutest:
   ssh.key: 'ovh_install' 
   image: 'ubuntu'
@@ -36,19 +37,14 @@ node.docker__ubuntutest:
   os: 'ovh4'
 
 os.ssh.ubuntu__docker_ovh4:
-  ssh.addr: '94.23.22.89'
-  ssh.port: 3022
   ssh.key: 'ovh_install' 
   node: 'ubuntutest'
-  # aysfs: true
+  g8os_fs: False
 
 os.ssh.ubuntu__docker_ovh3:
-  ssh.addr: '94.23.11.90'
-  ssh.port: 22
-  ssh.key: 'ovh_install' 
+  #ssh.key: 'ovh_install2' 
   node: 'ubuntutest'
-  # aysfs: true
-
+  g8os_fs: False
 
 # #needs to be created, a full app which install js8, jsportal, ...
 # portal__myportal:
