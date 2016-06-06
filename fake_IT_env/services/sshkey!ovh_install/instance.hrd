@@ -1,4 +1,4 @@
-agent.required                 = True
+agent.required                 = 'True'
 
 key.name                       = 'ovh_install'
 key.passphrase                 = 
