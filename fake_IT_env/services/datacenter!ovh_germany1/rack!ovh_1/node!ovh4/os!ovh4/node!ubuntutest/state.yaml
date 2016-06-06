@@ -7,5 +7,5 @@ producers:
   sshkey: [sshkey!ovh_install]
 recipe: node.docker
 recurring: {}
-state: {init: OK, install: CHANGEDHRD}
+state: {init: OK, install: OK}
 templateHRDHash: ''

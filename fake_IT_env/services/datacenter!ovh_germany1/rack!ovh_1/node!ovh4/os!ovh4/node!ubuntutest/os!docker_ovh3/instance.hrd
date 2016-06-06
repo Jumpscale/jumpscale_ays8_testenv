@@ -4,8 +4,8 @@ aysfs                          = 'False'
 
 node                           = 'ubuntutest'
 
-ssh.addr                       = '94.23.11.90'
+ssh.addr                       = 'localhost'
 ssh.key                        = 'ovh_install'
-ssh.port                       = 22
+ssh.port                       = 4023
 
 weave                          = 'False'
