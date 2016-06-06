@@ -1,5 +1,5 @@
 events: {}
-instanceHRDHash: 4de032830e8171e44b929d9172fca2a8
+instanceHRDHash: 7e7e8234d22ce26aba979abacac20175
 parent: os!ovh4
 producers:
   app_docker: [app_docker!auto_0]
@@ -7,5 +7,5 @@ producers:
   sshkey: [sshkey!ovh_install]
 recipe: node.docker
 recurring: {}
-state: {init: OK, install: OK}
+state: {init: OK}
 templateHRDHash: ''

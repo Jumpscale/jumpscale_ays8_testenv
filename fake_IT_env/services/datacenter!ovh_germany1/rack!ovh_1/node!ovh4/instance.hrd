@@ -1,9 +1,5 @@
 description                    = 
 
-newarg                         = 
-
-newarg2                        = 
-
 rack                           = 'ovh_1'
 
 type                           = 'develop'

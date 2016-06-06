@@ -5,5 +5,5 @@ producers:
   datacenter: [datacenter!ovh_germany1]
 recipe: rack
 recurring: {}
-state: {init: OK, install: OK}
+state: {init: OK}
 templateHRDHash: ''

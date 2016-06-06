@@ -1,10 +1,10 @@
 events: {}
-instanceHRDHash: 8267141b2f81c3a6965fe5384497573f
+instanceHRDHash: 1c61792d1ee3c0e465f8f9d162f6bf2f
 parent: node!ubuntutest
 producers:
   node: [node!ubuntutest]
   sshkey: [sshkey!ovh_install]
 recipe: os.ssh.ubuntu
 recurring: {}
-state: {init: OK, install: OK}
+state: {init: OK}
 templateHRDHash: ''
