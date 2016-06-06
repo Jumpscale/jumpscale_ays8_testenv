@@ -1,9 +1,0 @@
-events: {}
-instanceHRDHash: bfdacde50110fd81b19d12bbad18ccc9
-parent: datacenter!ovh_germany1
-producers:
-  datacenter: [datacenter!ovh_germany1]
-recipe: rack
-recurring: {}
-state: {init: OK}
-templateHRDHash: ''
