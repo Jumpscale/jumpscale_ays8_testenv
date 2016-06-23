@@ -3,13 +3,22 @@ from JumpScale import j
 
 class Actions(ActionsBaseMgmt):
     def install(self, service):
+        '''        
+        #@todo
+        - make sure docker is properly installed (use cuisine functionality)
+        '''
+        raise RuntimeError("error")
         return True
 
     def start(self, service):
-        pass
+        return True
 
     def stop(self, service):
-        pass
+        '''
+        @todo stop all docker instances
+        '''
 
     def monitor(self, service):
-        pass
+        '''
+        @todo monitor that docker is properly working
+        '''

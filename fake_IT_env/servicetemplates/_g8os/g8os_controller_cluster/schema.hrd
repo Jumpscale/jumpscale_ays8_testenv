@@ -1,0 +1,3 @@
+description = type:multiline  
+
+controllers                  = type:str consume:os.ssh.ubuntu:3
