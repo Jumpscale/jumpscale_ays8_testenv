@@ -5,5 +5,5 @@ producers:
   os: [os!ovh4]
 recipe: app_docker
 recurring: {}
-state: {init: OK}
+state: {init: OK, install: OK}
 templateHRDHash: ''

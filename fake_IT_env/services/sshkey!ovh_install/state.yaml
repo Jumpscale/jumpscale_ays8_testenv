@@ -1,8 +1,8 @@
 events: {}
-instanceHRDHash: 0e2f29ee87df269fb2bd027e1d3c1b6a
+instanceHRDHash: 586e25c226e1511575859e2da0cbb8c4
 parent: ''
 producers: {}
 recipe: sshkey
 recurring: {}
-state: {init: OK}
+state: {init: OK, install: OK}
 templateHRDHash: ''

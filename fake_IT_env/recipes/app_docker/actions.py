@@ -21,7 +21,7 @@ class Actions(ActionsBaseMgmt):
         #@todo
         - make sure docker is properly installed (use cuisine functionality)
         '''
-        raise RuntimeError("error")
+        # raise RuntimeError("error")
         return True
 
 

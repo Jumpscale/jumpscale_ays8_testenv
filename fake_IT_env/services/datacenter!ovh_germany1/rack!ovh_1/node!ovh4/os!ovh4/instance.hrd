@@ -1,11 +1,11 @@
 agent                          = 'False'
 
-aysfs                          = 'False'
+aysfs                          = False
 
 node                           = 'ovh4'
 
 ssh.addr                       = '94.23.38.89'
 ssh.key                        = 'ovh_install'
-ssh.port                       = '22'
+ssh.port                       = 22
 
 weave                          = 'False'

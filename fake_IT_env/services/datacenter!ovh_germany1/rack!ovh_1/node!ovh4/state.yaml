@@ -5,5 +5,5 @@ producers:
   rack: [rack!ovh_1]
 recipe: node.physical
 recurring: {}
-state: {init: OK}
+state: {init: OK, install: OK}
 templateHRDHash: ''
