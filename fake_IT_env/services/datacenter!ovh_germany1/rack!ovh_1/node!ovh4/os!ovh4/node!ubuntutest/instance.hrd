@@ -1,4 +1,4 @@
-docker                         = 
+docker                         = ''
 
 image                          = 'ubuntu'
 
@@ -7,4 +7,4 @@ os                             = 'ovh4'
 ports                          =
     '80',
 
-sshkey                         = 
+sshkey                         = ''

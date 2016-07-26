@@ -6,5 +6,5 @@ producers:
   sshkey: [sshkey!ovh_install]
 recipe: os.ssh.ubuntu
 recurring: {}
-state: {init: OK, install: OK}
+state: {init: OK}
 templateHRDHash: ''

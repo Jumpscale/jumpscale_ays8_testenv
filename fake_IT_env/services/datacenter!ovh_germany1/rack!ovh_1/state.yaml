@@ -1,9 +1,9 @@
 events: {}
-instanceHRDHash: bfdacde50110fd81b19d12bbad18ccc9
+instanceHRDHash: 4cbbd7e1d5359af7268f387b20fa5179
 parent: datacenter!ovh_germany1
 producers:
   datacenter: [datacenter!ovh_germany1]
 recipe: rack
 recurring: {}
-state: {init: OK, install: OK}
+state: {init: OK}
 templateHRDHash: ''

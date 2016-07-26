@@ -4,5 +4,5 @@ parent: ''
 producers: {}
 recipe: datacenter
 recurring: {}
-state: {init: OK, install: OK}
+state: {init: OK}
 templateHRDHash: ''

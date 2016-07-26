@@ -4,8 +4,8 @@ aysfs                          = 'False'
 
 node                           = 'ubuntutest'
 
-ssh.addr                       = 
-ssh.key                        = 
+ssh.addr                       = ''
+ssh.key                        = ''
 ssh.port                       = '0'
 
 weave                          = 'False'
