@@ -1,7 +1,7 @@
 image = type:str default:'ubuntu'
 ports = type:str list
 
-sshkey = descr:'authorized sshkey' consume:sshkey:1:1 auto
+ssh.key = descr:'authorized sshkey' consume:sshkey:1:1 auto
 
 os = type:str parent:'os'
 
