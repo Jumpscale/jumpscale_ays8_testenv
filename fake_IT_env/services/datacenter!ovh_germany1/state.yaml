@@ -1,8 +1,0 @@
-events: {}
-instanceHRDHash: 4e22b65822f2dc02e5ac5d701801f517
-parent: ''
-producers: {}
-recipe: datacenter
-recurring: {}
-state: {init: OK, install: OK}
-templateHRDHash: ''

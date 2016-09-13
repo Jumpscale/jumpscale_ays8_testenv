@@ -1,9 +1,0 @@
-events: {}
-instanceHRDHash: 143ecfcfb621fb9bfcc6f9d1bd1d51ee
-parent: rack!ovh_1
-producers:
-  rack: [rack!ovh_1]
-recipe: node.physical
-recurring: {}
-state: {init: OK, install: OK}
-templateHRDHash: ''

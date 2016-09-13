@@ -1,7 +1,0 @@
-agent.required                 = 'True'
-
-key.name                       = 'ovh_install'
-key.passphrase                 = ''
-key.path                       = '/root/.ssh/ovh_rsa'
-key.priv                       = 'someprivkey'
-key.pub                        = 'somepubkey'
