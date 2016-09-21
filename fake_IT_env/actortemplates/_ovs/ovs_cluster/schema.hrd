@@ -1,0 +1,4 @@
+description = type:multiline  
+
+ssh.key                        = type:str consume:sshkey:1  auto
+node.instance                  = type:str consume:node.physical:100

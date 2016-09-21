@@ -1,0 +1,9 @@
+
+ip.addr =  type:str auto:1
+ip.port =  type:int auto:1
+
+key.passphrase= type:str default:'' descr:'Specify passphrase (default is empty)'
+key.priv = type:str auto:1
+
+sshserver = type:str consume:sshserver:1:1
+sshkey = type:str uses:sshkey:1:1

@@ -1,0 +1,46 @@
+datacenter__somelocation:
+  location:
+    - '...'
+  description:
+    - '...'
+
+rack__rack1:
+  location:
+    - '...'
+  datacenter: 'somelocation'
+
+#make sure we use the ovh_install key we want
+sshkey__ovh_install:
+  key.path: '/root/.ssh/ovh_install'
+
+#no need to specify a sshkey, because there is only 1 will use that one
+node.physical__controller1:
+  rack: 'rack1'
+  type: 'controller'
+
+os.ssh.ubuntu__contr1:
+  ssh.addr: '192.168.99.1'
+  ssh.port: 22
+  ssh.key: 'ovh_install' 
+  node: 'controller1'
+  aysfs: False
+
+os.ssh.ubuntu__contr2:
+  ssh.addr: '192.168.99.2'
+  ssh.port: 22
+  ssh.key: 'ovh_install' 
+  node: 'controller2'
+  aysfs: False
+
+os.ssh.ubuntu__contr3:
+  ssh.addr: '192.168.99.3'
+  ssh.port: 22
+  ssh.key: 'ovh_install' 
+  node: 'controller3'
+  aysfs: False
+
+g8os.controller.cluster__main:
+  controllers: ['contr1','contr2','contr3']
+  description: 'main controllers of this env'
+
+
