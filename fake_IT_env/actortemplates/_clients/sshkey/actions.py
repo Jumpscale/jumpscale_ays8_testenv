@@ -1,63 +1,41 @@
 from JumpScale import j
 
 
-class Actions(ActionsBaseMgmt):
+class Actions():
 
-    def getSSHKey(self, service):
-        return "someprivkey", "somepubkey"
-
-    def _startAgent(self, service):
-        # FIXME
-        j.do.execute("ssh-agent", die=False, showout=False, outputStderr=False)
-
-    def init(self, service):
-        """ # testing changing the template
-        create key
+    def input(self, job):
         """
-        if service.hrd.get("key.name") == "":
-            service.hrd.set("key.name", service.instance)
-
-        name=service.hrd.get("key.name") 
-        
-        tmpdir=j.sal.fs.getTmpDirPath()
-
-        if j.do.getSSHKeyPathFromAgent(name, die=False)!=None:
-            keyfile = j.do.getSSHKeyPathFromAgent(name)
-        elif service.hrd.get("key.path") != "":
-            keyfile = service.hrd.get("key.path")
-        else:
-            keyfile=j.sal.fs.joinPaths(tmpdir,name)
-
-        keydest = j.sal.fs.joinPaths(service.path, "sshkey_%s"%service.instance)
-
-        service.hrd.set('key.pub', "somepubkey")
-        service.hrd.set('key.priv', "someprivkey")
-
-
-
-    def install(self, service):
-        # j.do.loadSSHAgent()
-        pass
-
-
-    def start(self, service):
+        create key, if it doesn't exist
         """
-        Add key to SSH Agent if not already loaded
-        """
-        keypath=j.sal.fs.joinPaths(service.path, "sshkey_%s"%service.instance)
-        # j.do.loadSSHKeys(keypath)
-        return True
 
+        # THIS ONE IS FIXED
 
-    #not sure we can remove, key can be used for something else
-    # def stop(self, service):
-    #     """
-    #     Remove key from SSH Agent
-    #     """
-    #     keyfile = self._getKeyPath()
-    #     if j.do.getSSHKeyPathFromAgent('$(key.name)', die=False) is not None:
-    #         keyloc = "/root/.ssh/%s" % '$(key.name)'
-    #         cmd = 'ssh-add -d %s' % keyfile
-    #         j.do.executeInteractive(cmd)
+        args = {}
 
+        if 'key.path' in job.model.args:
+            path = job.model.args['key.path']
+            if not j.sal.fs.exists(path, followlinks=True):
+                raise j.exceptions.Input(message="Cannot find ssh key:%s for service:%s" %
+                                         (path, job.service), level=1, source="", tags="", msgpub="")
 
+            args["key.priv"] = j.sal.fs.fileGetContents(path)
+            args.pop('key.path')
+
+        if 'key.name' in job.model.args:
+            path = j.do.getSSHKeyPathFromAgent("kds")
+            if not j.sal.fs.exists(path, followlinks=True):
+                raise j.exceptions.Input(message="Cannot find ssh key:%s for service:%s" %
+                                         (path, job.service), level=1, source="", tags="", msgpub="")
+
+            args["key.priv"] = j.sal.fs.fileGetContents(path)
+            args.pop('key.priv')
+
+        if 'key.priv' not in args or args['key.priv'].strip() == "":
+            print("lets generate private key")
+            path = j.sal.fs.joinPaths(j.dirs.tmpDir, "privatekey")
+            j.sal.fs.remove(path)
+            cmd = "ssh-keygen -q -t rsa -f %s -N ''" % (path)
+            rc, out = j.sal.process.execute(cmd, die=True, outputToStdout=False, ignoreErrorOutput=False)
+            args["key.priv"] = j.sal.fs.fileGetContents(path)
+
+        return args

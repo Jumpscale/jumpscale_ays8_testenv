@@ -10,7 +10,7 @@ rack__ovh_1:
 
 #make sure we use the ovh_install key we want
 sshkey__ovh_install:
-  key.path: '/root/.ssh/ovh_rsa'
+  # key.name: 'kds'
 
 #sshkey__ovh_install2:
 

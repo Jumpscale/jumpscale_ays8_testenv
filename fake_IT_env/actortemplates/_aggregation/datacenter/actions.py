@@ -1,11 +1,17 @@
-from JumpScale import j
+# fake example
 
 
 class Actions():
+
+    def input(self, job):
+        return job.model.args
+
+    def init(self, job):
+        return True
+
     def install(self, job):
-        '''        
+        '''
         #@todo
-        - make sure docker is properly installed (use cuisine functionality)
         '''
         raise RuntimeError("error")
         return True

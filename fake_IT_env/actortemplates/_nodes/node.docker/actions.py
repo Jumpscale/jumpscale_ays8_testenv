@@ -1,15 +1,15 @@
 from JumpScale import j
 
 
-class Actions(ActionsBaseMgmt):
+class Actions():
 
-    def init(self, service):
+    def init(self, job):
  # testing changing the template
         # if service.hrd.getBool('shellinabox'):
         #     shellinabox = service.aysrepo.new(instance=service.instance, consume=service)
         return True
 
-    def install(self, service):
+    def install(self, job):
         sshkey = service.getProducers('sshkey')[0] #test
         pubkey = sshkey.hrd.get('key.pub')
         image = service.hrd.getStr('image')
@@ -65,5 +65,5 @@ class Actions(ActionsBaseMgmt):
         service.logger.info("OUT: IP %s" % service.executor.addr)
         service.logger.info("OUT: SSH port %s" % public_port)
 
-    def start(self, service):
+    def start(self, job):
         return True #test

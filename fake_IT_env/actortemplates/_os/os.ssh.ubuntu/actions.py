@@ -1,8 +1,8 @@
 
 
-class Actions(ActionsBaseMgmt):
+class Actions():
 
-    def init(self, service):
+    def init(self, job):
         if service.hrd.getBool('aysfs', False):
             service.aysrepo.new('aysfs', args={'os': service.instance}, parent=service)
 
@@ -18,13 +18,13 @@ class Actions(ActionsBaseMgmt):
         #     service.hrd.set("system.backdoor.passwd", j.data.idgenerator.generateXCharID(12))
         return True
 
-    def getExecutor(self, service):
+    def getExecutor(self, job):
         return j.tools.executor.getLocal()
 
-    def monitor(self, service):
+    def monitor(self, job):
         return True
 
-    def install(self, service):
+    def install(self, job):
         if 'sshkey' in service.producers:
             sshkey = service.producers['sshkey'][0]
             sshkey_pub = sshkey.hrd.get('key.pub')
@@ -34,7 +34,7 @@ class Actions(ActionsBaseMgmt):
         print("authorize ssh key to machine")
 
 
-    def consume(self, service):
+    def consume(self, job):
         print ('consuming!')
 
         # if service.parent.hrd.get("type","")=="develop":

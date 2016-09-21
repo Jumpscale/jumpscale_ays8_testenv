@@ -1,5 +1,4 @@
 
-TODO: *2 change
 
 example how to use:
 
@@ -22,3 +21,4 @@ sshkeys                        = type:str list consume:sshkey:1
 this tells that a consumption of an sshkey is a requirement
 
 if key does not exist yet then will generate one
+

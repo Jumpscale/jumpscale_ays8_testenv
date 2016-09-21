@@ -2,16 +2,16 @@
 from JumpScale import j
 
 
-class Actions(ActionsBaseMgmt):
+class Actions():
 
-    def init(self, service):
+    def init(self, job):
         pass
 
-    def install(self, service):
+    def install(self, job):
         return True
 
-    def uninstall(self, service):
+    def uninstall(self, job):
         return True
 
-    def getClient(self, service):
+    def getClient(self, job):
         return None

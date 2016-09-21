@@ -6,5 +6,5 @@ ActionsBase = service.aysrepo.getActionsBaseClassMgmt()
 class Actions(ActionsBase):
 
 
-    def install(self, service):
+    def install(self, job):
         return True

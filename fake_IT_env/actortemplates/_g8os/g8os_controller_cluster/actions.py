@@ -2,9 +2,9 @@
 from JumpScale import j
 
 
-class Actions(ActionsBaseMgmt):
+class Actions():
 
-    def init(self, service):
+    def init(self, job):
         '''
         STEPS
         - find the 3 controllers, there need to be 3, do error otherwise
@@ -13,13 +13,13 @@ class Actions(ActionsBaseMgmt):
 
         '''
 
-    def install(self, service):
+    def install(self, job):
         '''
         call the monitor step, make sure it worked
         '''
 
 
-    def monitor(self, service):
+    def monitor(self, job):
         '''
         '''
         #nothing yet, will do later

@@ -2,9 +2,9 @@
 from JumpScale import j
 
 
-class Actions(ActionsBaseMgmt):
+class Actions():
 
-    def init(self, service):
+    def init(self, job):
 
         clientaysi = service.getProducers("g8client")[0]
 
@@ -14,14 +14,14 @@ class Actions(ActionsBaseMgmt):
         if service.hrd.get("g8.location") == "":
             service.hrd.set('g8.location', "alocation%s"%j.data.idgenerator.generateRandomInt(10,20))
 
-    def install(self, service):
+    def install(self, job):
         acc = client.account_get(service.hrd.get('g8.account'))
         # space = acc.space_get("$(service.instance)", service.hrd.get('g8.location'))
 
-    def uninstall(self, service):
+    def uninstall(self, job):
         return True
 
-    def getClient(self, service):
+    def getClient(self, job):
         clientname = """$(producer.g8client)"""
         clientname = clientname.strip().strip("',")
         return clientname

@@ -1,16 +1,16 @@
 from JumpScale import j
 
 
-class Actions(ActionsBaseMgmt):
+class Actions():
 
-    def init(self, service):
+    def init(self, job):
         '''
         STEPS
         - init app.docker, parent is parent os of docker_g8_controller: this will make sure we have a proper docker
         - 
         '''
 
-    def install(self, service):
+    def install(self, job):
         '''
 
         '''
@@ -22,16 +22,16 @@ class Actions(ActionsBaseMgmt):
             ...
         return True
 
-    def start(self, service):
+    def start(self, job):
         pass
 
-    def stop(self, service):
+    def stop(self, job):
         '''
         stop the docker which optionally is running
         '''
         pass
 
-    def monitor(self, service):
+    def monitor(self, job):
         '''
         - ping os in docker
         - ssh os in docker

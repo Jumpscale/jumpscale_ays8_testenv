@@ -1,9 +1,9 @@
 from JumpScale import j
 
 
-class Actions(ActionsBaseMgmt):
+class Actions():
 
-    def init(self, service):
+    def init(self, job):
         args = {'g8.url': "$(g8.url)",
                 'g8.login': "$(g8.login)",
                 'g8.password': "$(g8.password)"}

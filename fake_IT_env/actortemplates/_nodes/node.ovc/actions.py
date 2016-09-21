@@ -1,9 +1,9 @@
 from JumpScale import j
 
 
-class Actions(ActionsBaseMgmt):
+class Actions():
 
-    def getMachine(self, service):
+    def getMachine(self, job):
         machine=None
         return machine
 
@@ -18,7 +18,7 @@ class Actions(ActionsBaseMgmt):
         service.hrd.set('portforwards', pf)
         return spaceport
 
-    def install(self, service):
+    def install(self, job):
         
         machineid=service.hrd.getSet('machineid', j.data.idgenerator.generateRandomInt(10,20))
 
@@ -38,6 +38,6 @@ class Actions(ActionsBaseMgmt):
                 service.actions.open_port(requested_port=port)
 
 
-    def uninstall(self, service):
+    def uninstall(self, job):
         pass
         

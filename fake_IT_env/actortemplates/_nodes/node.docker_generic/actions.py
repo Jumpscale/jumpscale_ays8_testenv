@@ -5,16 +5,16 @@ ActionsBase = service.aysrepo.getActionsBaseClassMgmt()
 
 class Actions(ActionsBase):
 
-    def __init__(self, service):
+    def __init__(self, job):
         super(Actions, self).__init__(service)
         self._cuisine = None
 
     @property
-    def cuisine(self, service):
+    def cuisine(self, job):
         #not implemented
         return None
 
-    def hrd(self, service):
+    def hrd(self, job):
         # def setDockerSize():
         #     size = service.hrd.getInt("docker.size")
         #     ok = [8]
@@ -42,12 +42,12 @@ class Actions(ActionsBase):
         # setDockerSize()
         setDiskSize()
 
-    def getClient(self, service):
+    def getClient(self, job):
         vdc = service.parent
         client = vdc.action_methods_mgmt.getClient()
         return client
 
-    def getSpace(self, service):
+    def getSpace(self, job):
         vdc = service.parent
         farm = vdc.parent
 
@@ -55,7 +55,7 @@ class Actions(ActionsBase):
         space = account.space_get(vdc.instance, location=vdc.hrd.get('location'))
         return space
 
-    def getMachine(self, service):
+    def getMachine(self, job):
         # space = self.getSpace()
 
         # if service.instance in space.machines:
@@ -67,7 +67,7 @@ class Actions(ActionsBase):
         machine=None
         return machine
 
-    def install(self, service):
+    def install(self, job):
         # executor = machine.get_ssh_connection()
 
         service.hrd.set("machine.id", j.data.idgenerator.generateRandomInt(10,20))
@@ -86,6 +86,6 @@ class Actions(ActionsBase):
         # executor.cuisine.ssh.authorize('root', sshkey_pub)
 
 
-    def uninstall(self, service):
+    def uninstall(self, job):
         service.logger.info("UNINSTALL OK")
         return True

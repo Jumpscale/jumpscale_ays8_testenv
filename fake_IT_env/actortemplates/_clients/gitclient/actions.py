@@ -1,11 +1,11 @@
 from JumpScale import j
 
 
-class Actions(ActionsBaseMgmt):
+class Actions():
 
-    def init(self, service):
+    def init(self, job):
         return True
 
-    def install(self, service):
+    def install(self, job):
         service.logger.info("Installed ok:%s"%service)
         return True
