@@ -28,7 +28,7 @@ class Actions():
                                          (path, job.service), level=1, source="", tags="", msgpub="")
 
             args["key.priv"] = j.sal.fs.fileGetContents(path)
-            args.pop('key.priv')
+            args.pop('key.name')
 
         if 'key.priv' not in args or args['key.priv'].strip() == "":
             print("lets generate private key")
