@@ -1,21 +1,18 @@
 from JumpScale import j
 
+def input(service, args={}):
 
-class Actions():
+    if "g8.account" not in args or args["g8.account"].strip() == "":
+        args['g8.account'] = args["g8.login"]
 
-    def input(self, service, args={}):
+    return args
 
-        if "g8.account" not in args or args["g8.account"].strip() == "":
-            args['g8.account'] = args["g8.login"]
+def init(job):
+    pass
 
-        return args
-
-    def init(self, job):
-        pass
-
-    def getClient(self, job):
-        """
-        return client towards g8 master
-        """
-        # not implemented ofcourse
-        return None
+def getClient(job):
+    """
+    return client towards g8 master
+    """
+    # not implemented ofcourse
+    return None

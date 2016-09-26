@@ -27,7 +27,7 @@ vdc__mytest:
 
 os.ubuntu.openvcloud__mytestmachine:
   #g8.location: ''
-  #ssh.key: ''
+  #sshkey: ''
   #vdc.farm: 'myfarm'
   vdc.name: 'mytest'
   mem.size: 4
@@ -51,4 +51,4 @@ os.ubuntu.openvcloud__mytestmachine:
     - node will be created in vdc with appropriate sizing arguments
     - os will be created inside node and name will be name of instance: mytestmachine in this example
 - optional arguments
-    - ssh.key name, is name of instance of ssh key, if not specified then will create a new one 
+    - sshkey name, is name of instance of ssh key, if not specified then will create a new one 

@@ -22,24 +22,24 @@ node.physical__ovh4:
 os.ssh.ubuntu__ovh4:
   ssh.addr: '94.23.38.89'
   ssh.port: 22
-  ssh.key: 'ovh_install'
+  sshkey: 'ovh_install'
   node: 'ovh4'
   aysfs: False
 
 node.docker__ubuntutest:
-  ssh.key: 'ovh_install'
+  sshkey: 'ovh_install'
   image: 'ubuntu'
   ports:
     - 80
   os: 'ovh4'
 
 os.ssh.ubuntu__docker_ovh4:
-  ssh.key: 'ovh_install'
+  sshkey: 'ovh_install'
   node: 'ubuntutest'
   g8os_fs: False
 
 os.ssh.ubuntu__docker_ovh3:
-  #ssh.key: 'ovh_install2'
+  #sshkey: 'ovh_install2'
   node: 'ubuntutest'
   g8os_fs: False
 
