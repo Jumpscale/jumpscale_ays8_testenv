@@ -25,11 +25,11 @@ def monitor( job):
     return True
 
 def install( job):
-    if 'sshkey' in service.producers:
-        sshkey = service.producers['sshkey'][0]
-        sshkey_pub = sshkey.hrd.get('key.pub')
-    else:
-        raise RuntimeError("No sshkey found. please consume an sshkey service")
+    # if 'sshkey' in service.producers:
+    #     sshkey = service.producers['sshkey'][0]
+    #     sshkey_pub = sshkey.hrd.get('key.pub')
+    # else:
+    #     raise RuntimeError("No sshkey found. please consume an sshkey service")
 
     print("authorize ssh key to machine")
 

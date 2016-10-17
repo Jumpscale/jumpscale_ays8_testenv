@@ -10,13 +10,14 @@ def init( job):
     return True
 
 def install( job):
-    sshkey = service.getProducers('sshkey')[0] #test
-    pubkey = sshkey.hrd.get('key.pub')
-    image = service.hrd.getStr('image')
-    if 'node' in service.parent.producers:
-        host_node = service.parent.producers['node'][0]
-    else:
-        raise j.exceptions.NotFound("Can't find host node of this service %s" % service)
+    # sshkey = service.getProducers('sshkey')[0] #test
+    # pubkey = sshkey.hrd.get('key.pub')
+    # image = service.hrd.getStr('image')
+    # if 'node' in service.parent.producers:
+    #     host_node = service.parent.producers['node'][0]
+    # else:
+    #     raise j.exceptions.NotFound("Can't find host node of this service %s" % service)
+    return True
 
     def _pf_map(docker_ports):
         pf_creation = []

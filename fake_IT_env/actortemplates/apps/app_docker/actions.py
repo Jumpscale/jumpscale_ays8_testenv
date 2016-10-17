@@ -1,19 +1,12 @@
-# fake example
+from JumpScale import j
 
 
-
-def input( job):
-    return job.model.args
-
-def init( job):
-    print("INIT OF DATACENTER")
-    return True
 
 def install( job):
     '''
     #@todo
+    - make sure docker is properly installed (use cuisine functionality)
     '''
-    raise RuntimeError("error")
     return True
 
 def start( job):
