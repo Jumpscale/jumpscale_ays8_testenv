@@ -24,9 +24,7 @@ os.ssh.ubuntu__ovh4:
   ssh.port: 22
   sshkey: 'ovh_install'
   node: 'ovh4'
-  aysfs: False
-  agent: False
- 
+
 node.docker__ubuntutest:
   sshkey: 'ovh_install'
   image: 'ubuntu'
@@ -37,12 +35,10 @@ node.docker__ubuntutest:
 os.ssh.ubuntu__docker_ovh4:
   sshkey: 'ovh_install'
   node: 'ubuntutest'
-  aysfs: False
 
 os.ssh.ubuntu__docker_ovh3:
   #sshkey: 'ovh_install2'
   node: 'ubuntutest'
-  aysfs: False
 
 # #needs to be created, a full app which install js8, jsportal, ...
 # portal__myportal:
