@@ -23,21 +23,18 @@ os.ssh.ubuntu__contr1:
   ssh.port: 22
   ssh.key: 'ovh_install' 
   node: 'controller1'
-  aysfs: False
 
 os.ssh.ubuntu__contr2:
   ssh.addr: '192.168.99.2'
   ssh.port: 22
   ssh.key: 'ovh_install' 
   node: 'controller2'
-  aysfs: False
 
 os.ssh.ubuntu__contr3:
   ssh.addr: '192.168.99.3'
   ssh.port: 22
   ssh.key: 'ovh_install' 
   node: 'controller3'
-  aysfs: False
 
 g8os.controller.cluster__main:
   controllers: ['contr1','contr2','contr3']

@@ -27,7 +27,6 @@ os.ssh.ubuntu__ovh4:
   ssh.port: 22
   ssh.key: 'ovh_install' 
   node: 'ovh4'
-  aysfs: False
 
 node.docker__ubuntutest:
   ssh.key: 'ovh_install' 
