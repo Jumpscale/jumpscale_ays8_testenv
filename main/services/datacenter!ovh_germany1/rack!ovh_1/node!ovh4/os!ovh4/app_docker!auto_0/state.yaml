@@ -1,9 +1,0 @@
-events: {}
-instanceHRDHash: c8ca4ebc39c39fd688b62798ae64d166
-parent: os!ovh4
-producers:
-  os: [os!ovh4]
-recipe: app_docker
-recurring: {}
-state: {init: OK}
-templateHRDHash: ''
